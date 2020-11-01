@@ -1,0 +1,42 @@
+<div class="container-fluid bg-success">		
+	<nav class="navbar navbar-expand-lg navbar-light bg-success">
+      <a class="navbar-brand text-white" [routerLink]="'/'">      
+        <img src="{{ siteData ? appUrl+siteData.sitelogo : '' }}" alt="{{ siteData ? appUrl+siteData.sitename : '' }}">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"></ul>
+        <div *ngIf="userLogin == '' else afterLogin">
+        	<ul class="my-2 my-lg-0 navbar-nav">
+          		<li class="nav-item">
+            		<a class="nav-link text-white" [routerLink]="'/register'">Sign Up</a>
+          		</li>
+          		<li class="nav-item">
+            		<a class="nav-link text-white" [routerLink]="'/login'">Sign In</a>
+          		</li>
+        	</ul>
+    	</div>
+    	<ng-template #afterLogin>
+        	<ul class="my-2 my-lg-0 navbar-nav">
+        		<li class="nav-item">
+            		<a class="nav-link text-white" [routerLink]="'/dashboard'">Dashboard</a>
+          		</li>
+          		<li class="nav-item">
+            		<a class="nav-link text-white" [routerLink]="'/logout'">Logout</a>
+          		</li>
+          		<li class="nav-item dropdown d-none">
+            		<a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              			Profile
+            		</a>
+            		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              			<a class="dropdown-item" href="#">Update Profile</a>
+              			<a class="dropdown-item" href="#">Logout</a>
+            		</div>
+          		</li>
+        	</ul>
+    	</ng-template>
+      </div>
+    </nav>
+</div>
